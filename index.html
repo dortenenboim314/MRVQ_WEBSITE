@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Research Paper Title</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <!-- Title Section -->
+        <section class="title-section">
+            <h1>MRVQ: Multi-Resolution Vector Quantization</h1>
+            
+            <div class="authors">
+                <p><a href="https://www.linkedin.com/in/dor-tenenboim/">Dor Tenenboim</a><sup>1*</sup>, <a href="https://www.linkedin.com/in/tal-or/">Or Tal</a><sup>1,3*</sup>, Yossi Adi<sup>1,3</sup></p>
+                <div class="affiliations">
+                    <p><sup>1</sup>The Hebrew University of Jerusalem</p>
+                    <p><sup>2</sup>FAIR, Meta AI</p>
+                    <!-- <p><sup>3</sup>Meta</p> -->
+                    <p><sup>*</sup>Equal Contribution</p>
+                </div>
+            </div>
+
+            <div class="paper-links">
+                <a href="#" class="button">[paper]</a>
+                <a href="#" class="button">[code]</a>
+                <a href="#" class="button">[bib]</a>
+            </div>
+        </section>
+
+        <!-- Abstract Section -->
+        <section class="abstract">
+            <h2>Abstract</h2>
+            <div class="abstract-content">
+                <figure class="abstract-figure">
+                    <img src="assets/arch_coarse_new.png" alt="Model Architecture Diagram">
+                    <figcaption>Figure 1: Overview of our proposed MRVQ architecture.</figcaption>
+                </figure>
+                <p>We introduce a novel multi-resolution quantization method for audio compression that extends Residual Vector Quantization (RVQ) to multiple hierarchies of audio signals. Our approach employs quantization at several resolutions, enabling coarser levels to encode global audio features and finer levels to capture intricate details. This hierarchical design reduces redundancy, minimizes quantization errors, and aligns with the diverse scales of audio information. Using the EnCodec model, we present H-EnCodec (Hierarchical EnCodec) and evaluate it on speech (16 kHz) and music (24 kHz) signals against single-resolution RVQ baselines. Results demonstrate that H-EnCodec achieves comparable or superior audio fidelity at the same bandwidth, while showcasing interpretable hierarchical properties. Coarser representations effectively capture global characteristics, while finer ones preserve detailed nuances, offering flexible and insightful audio representations.</p>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section class="demo">
+            <h2>Exploring Hierarchical Audio Enhancements</h2>
+            <p class="demo-description">Audio reconstructions generated from quantized representations at multiple resolutions, created using H-EnCodec with 3 levels of quantization.</p>
+            <div class="demo-container">
+                <div class="demo-grid">
+                    <div class="demo-header">
+                        Source
+                    </div>
+                    <div class="demo-header">
+                        Original Audio, Mono
+                        <br>24Khz
+                        <br>384kbps
+                    </div>
+                    <div class="demo-header">
+                        Coarsest Resolution
+                        <br>5hz
+                        <br>0.5kbps
+                    </div>
+                    <div class="demo-header">
+                        Coarsest + Second Resolution
+                        <br>5hz + 15hz
+                        <br>2.5kbps
+                    </div>
+                    <div class="demo-header">
+                        All Resolutions
+                        <br>5hz + 15hz + 75hz
+                        <br>4kbps
+                    </div>
+                    
+                    <!-- Row 1 -->
+                    <div class="demo-cell">
+                        Borderline
+                    </div>
+                    <div class="demo-cell">
+                        <audio controls>
+                            <source src="assets/audio/hirarchies/borderline/borderline_original.wav" type="audio/wav">
+                        </audio>
+                    </div>
+                    <div class="demo-cell">
+                        <audio controls>
+                            <source src="assets/audio/hirarchies/borderline/borderline_2.wav" type="audio/wav">
+                        </audio>
+                    </div>
+                    <div class="demo-cell">
+                        <audio controls>
+                            <source src="assets/audio/hirarchies/borderline/borderline_2_1.wav" type="audio/wav">
+                        </audio>
+                    </div>
+                    <div class="demo-cell">
+                        <audio controls>
+                            <source src="assets/audio/hirarchies/borderline/borderline_2_1_0.wav" type="audio/wav">
+                        </audio>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="demo-cell">
+                        What The Hell
+                    </div>
+                    <div class="demo-cell">
+                        <audio controls>
+                            <source src="assets/audio/hirarchies/what_the_hell/what_the_hell_original.wav" type="audio/wav">
+                        </audio>
+                    </div>
+                    <div class="demo-cell">
+                        <audio controls>
+                            <source src="assets/audio/hirarchies/what_the_hell/what_the_hell_2.wav" type="audio/wav">
+                        </audio>
+                    </div>
+                    <div class="demo-cell">
+                        <audio controls>
+                            <source src="assets/audio/hirarchies/what_the_hell/what_the_hell_2_1.wav" type="audio/wav">
+                        </audio>
+                    </div>
+                    <div class="demo-cell">
+                        <audio controls>
+                            <source src="assets/audio/hirarchies/what_the_hell/what_the_hell_2_1_0.wav" type="audio/wav">
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="zero-shot-conversion">
+            <h2>Zero-Shot Speaker Mimicry</h2>
+            <p class="conversion-description">
+                A remarkable property of our model is its ability to mimic speaker conversion. This behavior arises from the hierarchical nature of our quantization, where the coarsest representation encodes global, time-invariant properties of the audio signal, such as speaker identity. By swapping only the coarsest representation between these samples, the resulting audio resembles a transformation of the speaker’s identity while preserving the spoken content. In this demo, we use audio samples from LibriSpeech, focusing on sentences from two different speakers, <strong>p232</strong> and <strong>p257</strong>. Although this is not a perfect speaker conversion, it is an interesting result, especially considering the network was not explicitly trained for such a task.
+            </p>
+            
+            <!-- Sentence 20 Section -->
+            <section class="sentence-demo">
+                <h3>Sentence 20</h3>
+                <div class="demo-container">
+                    <table class="demo-table">
+                        <thead>
+                            <tr>
+                                <th>Speaker</th>
+                                <th>Reconstructed (Regular)</th>
+                                <th>Reconstructed (Swapped Coarse)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Speaker 232</td>
+                                <td>
+                                    <audio controls>
+                                        <source src="assets/audio/speaker_conversion/p232_020_p232_020.wav" type="audio/wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls>
+                                        <source src="assets/audio/speaker_conversion/p232_020_p257_020.wav" type="audio/wav">
+                                    </audio>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Speaker 257</td>
+                                <td>
+                                    <audio controls>
+                                        <source src="assets/audio/speaker_conversion/p257_020_p257_020.wav" type="audio/wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls>
+                                        <source src="assets/audio/speaker_conversion/p257_020_p232_020.wav" type="audio/wav">
+                                    </audio>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Sentence X Section -->
+            <section class="sentence-demo">
+                <h3>Sentence X</h3>
+                <div class="demo-container">
+                    <table class="demo-table">
+                        <thead>
+                            <tr>
+                                <th>Speaker</th>
+                                <th>Reconstructed (Regular)</th>
+                                <th>Reconstructed (Swapped Coarse)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Speaker 232</td>
+                                <td>
+                                    <audio controls>
+                                        <source src="assets/audio/speaker_conversion/p232_X_p232_X.wav" type="audio/wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls>
+                                        <source src="assets/audio/speaker_conversion/p232_X_p257_X.wav" type="audio/wav">
+                                    </audio>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Speaker 257</td>
+                                <td>
+                                    <audio controls>
+                                        <source src="assets/audio/speaker_conversion/p257_X_p257_X.wav" type="audio/wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls>
+                                        <source src="assets/audio/speaker_conversion/p257_X_p232_X.wav" type="audio/wav">
+                                    </audio>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+                
+    
+
+        <!-- BibTeX Section -->
+        <section class="bibtex">
+            <h2>BibTeX</h2>
+            <pre><code>@article{yourarticle2024,
+    title={Your Paper Title},
+    author={Author1, Author2, Author3},
+    journal={Journal Name},
+    year={2024}
+}</code></pre>
+        </section>
+    </main>
+</body>
+</html> 
