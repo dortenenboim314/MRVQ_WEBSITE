@@ -138,8 +138,8 @@ h1 {
     color: var(--primary-color);
     padding: 1rem;
     border-radius: 6px;
-    border: 1px solid #ddd;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* border: 1px solid #ddd; 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);  */
 }
 
 .demo-cell {
@@ -160,7 +160,7 @@ h1 {
 .demo-cell audio {
     width: 100%;
     max-width: 290px;
-    height: 32px;
+    height: 42px;
     outline: none;
 }
 
