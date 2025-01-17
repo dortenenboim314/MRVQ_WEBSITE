@@ -5,6 +5,7 @@
     --accent-color: #0066cc;
 }
 
+/* Global Styles */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     line-height: 1.6;
@@ -20,6 +21,7 @@ main {
     padding: 2rem;
 }
 
+/* Title Section */
 .title-section {
     text-align: center;
     margin-bottom: 3rem;
@@ -54,17 +56,16 @@ h1 {
     background-color: #0052a3;
 }
 
-/* Abstract */
+/* Abstract Section */
 .abstract {
     max-width: 800px;
-    margin: 0 auto 3rem;
+    margin: 0 auto 2rem;
     text-align: justify;
-    border: 1px solid #ddd; /* Subtle border */
-    border-radius: 8px; /* Rounded corners */
-    background-color: #fefefe; /* Light off-white background */
-    padding: 1.5rem; /* Add spacing inside the section */
-    margin-bottom: 2rem; /* Space between abstract and other sections */
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fefefe;
+    padding: 1.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .abstract-content {
@@ -91,56 +92,54 @@ h1 {
     font-style: italic;
 }
 
+/* Demo Section */
 .demo {
-    text-align: left !important; /* Ensure left alignment */
-    margin-top: 5rem; /* Add a bit more space above the demo section */
-    margin-bottom: 3rem; /* Space between abstract and other sections */
+    text-align: left !important;
+    margin: 5rem 0 3rem;
 }
 
 .demo h2, .demo-description {
-    text-align: left !important; /* Force left alignment */
-    margin: 0; /* Reset default margin */
-    padding: 0; /* Reset default padding */
-    max-width: 100%; /* Ensure the content spans the full width */
+    text-align: left !important;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
 }
 
 .demo-container {
-    margin-top: 1rem; /* Add spacing below the paragraph if needed */
+    margin-top: 1rem;
 }
+
 .demo-description {
-    display: block; /* Ensure it stays as a block element */
-    margin: 0; /* Remove unnecessary margins */
-    padding: 0; /* Remove extra padding */
-    text-align: center; /* Align text centrally under the title */
-    font-size: 1rem; /* Adjust font size if needed */
-    line-height: 1.5; /* Enhance readability */
+    display: block;
+    margin: 1rem 0 1.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.5;
 }
 
 .demo-grid {
     display: grid;
     grid-template-columns: auto repeat(4, 1fr);
     gap: 1rem;
-    align-items: stretch; /* Ensure full alignment */
+    align-items: stretch;
     margin: 2rem 0;
 }
 
 .demo-header {
     font-weight: bold;
     padding: 1rem;
-    background-color: #f1f1f1; /* Light gray for subtle differentiation */
+    background-color: #f1f1f1;
     text-align: center;
     font-size: 1rem;
     border-bottom: 2px solid #ccc;
-    vertical-align: middle;
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap;
 }
 
 .demo-cell {
     text-align: center;
     padding: 1rem;
-    vertical-align: middle;
     background-color: #fff;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Light shadow for cells */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .demo-cell audio {
@@ -150,19 +149,22 @@ h1 {
     margin-top: 0.5rem;
     outline: none;
 }
-/* Target only audio players inside the demo section */
+
+/* Hide Time Controls in Demo Audio Players */
 .demo audio::-webkit-media-controls-time-remaining-display,
 .demo audio::-webkit-media-controls-current-time-display {
-    display: none; /* Hide the current time and duration */
+    display: none;
 }
 
 .demo audio {
-    width: 100%; /* Optional: Make the player responsive */
-    border-radius: 8px; /* Optional: Add rounded corners for aesthetics */
+    width: 100%;
+    border-radius: 8px;
 }
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .demo-grid {
-        grid-template-columns: auto 1fr; /* Adjust grid for smaller screens */
+        grid-template-columns: auto 1fr;
     }
 
     .demo-header {
@@ -177,7 +179,7 @@ h1 {
 
 @media (max-width: 480px) {
     .demo-grid {
-        grid-template-columns: 1fr; /* Single column for very small screens */
+        grid-template-columns: 1fr;
     }
 
     .demo-cell audio {
@@ -185,10 +187,10 @@ h1 {
     }
 }
 
-.demo-description {
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-size: 1.2rem;
-    margin-top: 1rem;
+.zero-shot-conversion .demo-cell {
+    padding: 2rem 1.5rem; /* Increase spacing inside the cells */
 }
 
+.zero-shot-conversion audio {
+    margin: 0.5rem 1rem; /* Add extra vertical space around audio elements */
+}
