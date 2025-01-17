@@ -59,6 +59,12 @@ h1 {
     max-width: 800px;
     margin: 0 auto 3rem;
     text-align: justify;
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #fefefe; /* Light off-white background */
+    padding: 1.5rem; /* Add spacing inside the section */
+    margin-bottom: 2rem; /* Space between abstract and other sections */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
 .abstract-content {
@@ -85,9 +91,29 @@ h1 {
     font-style: italic;
 }
 
+.demo {
+    text-align: left !important; /* Ensure left alignment */
+    margin-top: 5rem; /* Add a bit more space above the demo section */
+    margin-bottom: 3rem; /* Space between abstract and other sections */
+}
+
+.demo h2, .demo-description {
+    text-align: left !important; /* Force left alignment */
+    margin: 0; /* Reset default margin */
+    padding: 0; /* Reset default padding */
+    max-width: 100%; /* Ensure the content spans the full width */
+}
+
 .demo-container {
-    margin: 2rem 0;
-    overflow-x: auto;
+    margin-top: 1rem; /* Add spacing below the paragraph if needed */
+}
+.demo-description {
+    display: block; /* Ensure it stays as a block element */
+    margin: 0; /* Remove unnecessary margins */
+    padding: 0; /* Remove extra padding */
+    text-align: center; /* Align text centrally under the title */
+    font-size: 1rem; /* Adjust font size if needed */
+    line-height: 1.5; /* Enhance readability */
 }
 
 .demo-grid {
@@ -124,7 +150,16 @@ h1 {
     margin-top: 0.5rem;
     outline: none;
 }
+/* Target only audio players inside the demo section */
+.demo audio::-webkit-media-controls-time-remaining-display,
+.demo audio::-webkit-media-controls-current-time-display {
+    display: none; /* Hide the current time and duration */
+}
 
+.demo audio {
+    width: 100%; /* Optional: Make the player responsive */
+    border-radius: 8px; /* Optional: Add rounded corners for aesthetics */
+}
 @media (max-width: 768px) {
     .demo-grid {
         grid-template-columns: auto 1fr; /* Adjust grid for smaller screens */
@@ -154,4 +189,6 @@ h1 {
     margin-bottom: 1.5rem;
     text-align: center;
     font-size: 1.2rem;
+    margin-top: 1rem;
 }
+
