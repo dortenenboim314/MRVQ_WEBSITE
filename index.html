@@ -43,7 +43,7 @@
         <!-- Demo Section -->
         <section class="demo">
             <h2>Exploring Hierarchical Audio Representations</h2>
-            <p class="demo-description">Audio reconstructions generated from quantized representations at multiple resolutions, created using H-EnCodec with 3 levels of quantization.</p>
+            <p class="demo-description">Audio reconstructions generated from quantized representations at multiple resolutions. <br> Created using H-EnCodec with 3 levels of quantization.</p>
             <div class="demo-container">
                 <div class="demo-grid">
                     <!-- Headers -->
@@ -128,10 +128,19 @@
 
         <section class="zero-shot-conversion">
             <h2>Zero-Shot Speaker Conversion</h2>
-            <p class="conversion-description">
+            <!-- <p class="conversion-description">
                 A remarkable property of our model is its ability to mimic speaker conversion. This behavior arises from the hierarchical nature of our quantization, where the coarsest representation encodes global, time-invariant properties of the audio signal, such as speaker identity. By swapping only the coarsest representation between these samples, the resulting audio resembles a transformation of the speaker’s identity while preserving the spoken content. In this demo, we use audio samples from LibriSpeech, focusing on sentences from two different speakers, <strong>p232</strong> and <strong>p257</strong>. Although this is not a perfect speaker conversion, it is an interesting result, especially considering the network was not explicitly trained for such a task.
+            </p> -->
+            <p class="conversion-description">
+                Building upon the idea that the coarsest codebook learns the most global representations,
+                <br>
+                We show that by swapping them, we can <strong>mimic</strong> speaker conversion.
+                <br>
+                Although this is not true speaker conversion, it is an interesting result since the network was not trained for this task.
             </p>
-            
+            <p class="conversion-description">
+                In this demo, we use audio samples from LibriSpeech, focusing on sentences from two different speakers, <strong>p232</strong> and <strong>p257</strong>.
+            </p>
             <!-- Sentence 20 Section -->
             <section class="sentence-demo">
                 <h3>Sentence 20</h3>
@@ -139,7 +148,7 @@
                     <table class="demo-table">
                         <thead>
                             <tr>
-                                <th>Speaker</th>
+                                <th></th>
                                 <th>Source</th>
                                 <th>Reconstructed (Regular)</th>
                                 <th>Reconstructed (Swapped Coarse)</th>
@@ -194,7 +203,7 @@
                     <table class="demo-table">
                         <thead>
                             <tr>
-                                <th>Speaker</th>
+                                <th></th>
                                 <th>Source</th>
                                 <th>Reconstructed (Regular)</th>
                                 <th>Reconstructed (Swapped Coarse)</th>
